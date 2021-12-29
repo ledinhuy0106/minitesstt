@@ -31,5 +31,17 @@ public class HouseController {
     }
 
 
+    //Hoàn thành
+    @DeleteMapping("/{id}")
+    public ResponseEntity<House> delete(@PathVariable Long id) {
+        houseService.remove(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+
+
+
+
 }
 
