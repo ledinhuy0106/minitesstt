@@ -47,6 +47,13 @@ public class HouseController {
         return new ResponseEntity<>(house, HttpStatus.OK);
     }
 
+    //Hoàn thành
+    @PostMapping("")
+    public ResponseEntity<House> create(@RequestBody House house) {
+        houseService.save(house);
+        Optional<House> house1 = houseService.findById(house.getId());
+        return new ResponseEntity<>(house1.get(), HttpStatus.CREATED);
+    }
 
 
 }
