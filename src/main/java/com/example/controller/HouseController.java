@@ -53,7 +53,12 @@ public class HouseController {
         Iterable<House> houses = houseService.findAllByBathGreaterThan(2);
         return new ResponseEntity<>(houses, HttpStatus.OK);
     }
-
+    //Hoàn thành
+    @GetMapping("/findbyname")
+    public ResponseEntity<Iterable<House>> findByName() {
+        Iterable<House> houses = houseService.findAllByOrderByName();
+        return new ResponseEntity<>(houses, HttpStatus.OK);
+    }
 
 }
 
