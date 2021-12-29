@@ -23,6 +23,12 @@ public class HouseController {
         Iterable<House> houses = houseService.findAll();
         return new ResponseEntity<>(houses, HttpStatus.OK);
     }
+    //Hoàn thành
+    @GetMapping("/{id}")
+    public ResponseEntity<House> findById(@PathVariable Long id) {
+        Optional<House> house = houseService.findById(id);
+        return new ResponseEntity<>(house.get(), HttpStatus.OK);
+    }
 
 
 }
