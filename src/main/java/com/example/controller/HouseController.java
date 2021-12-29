@@ -39,7 +39,13 @@ public class HouseController {
     }
 
 
-
+    //Hoàn thành
+    @PutMapping("/{id}")
+    public ResponseEntity<House> update(@PathVariable Long id, @RequestBody House house) {
+        house.setId(id);
+        houseService.save(house);
+        return new ResponseEntity<>(house, HttpStatus.OK);
+    }
 
 
 
