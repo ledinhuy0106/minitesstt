@@ -48,11 +48,10 @@ public class HouseController {
     }
 
     //Hoàn thành
-    @PostMapping("")
-    public ResponseEntity<House> create(@RequestBody House house) {
-        houseService.save(house);
-        Optional<House> house1 = houseService.findById(house.getId());
-        return new ResponseEntity<>(house1.get(), HttpStatus.CREATED);
+    @GetMapping("/bath2")
+    public ResponseEntity<Iterable<House>> findAllByBathGreaterThan() {
+        Iterable<House> houses = houseService.findAllByBathGreaterThan(2);
+        return new ResponseEntity<>(houses, HttpStatus.OK);
     }
 
 
